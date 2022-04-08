@@ -45,4 +45,37 @@ function draw(){
     fill("#FF0000");
     stroke("#FF0000");
     
+    song1_status=song1.isPlaying();
+    song2_status=song2.isPlaying();
+
+    if(scoreLeftWrist >0.2)
+    {
+        circle(leftWristX, leftWristY, 20);
+        song2.stop();
+
+        if(song1_status==false){
+            song1.play();
+
+            document.getElementById("song").innerHTML="Harry Potter";
+        }
+    }
+    
+
+    if(scoreRightWrist >0.2)
+    {
+        circle(rightWristX, rightWristY, 20);
+        song1.stop();
+
+        if(song2_status==false){
+            song2.play();
+
+            document.getElementById("song").innerHTML="Peter Pan";
+
+        }
+    }
+}
+function play(){
+    song1.play();
+    song1.setVolume(1);
+    song1.rate();
 }
